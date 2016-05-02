@@ -4,7 +4,10 @@
   "description": "Efficient on-demand element focusing directive for angular.",
   "main": "index.js",
   "scripts": {
-    "test": "karma start test/karma.conf.js --single-run"
+    "test": "karma start test/karma.conf.js --single-run",
+    "jshint": "jshint ./src ./test",
+    "build": "find ./src/ -name '*.js' -exec cat {} \\; > ./dist/ng-fast-focus.js && uglifyjs ./dist/ng-fast-focus.js --compress -o ./dist/ng-fast-focus.min.js",
+    "add-dist": "git add ./dist/ng-fast-focus.js ./dist/ng-fast-focus.min.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +25,7 @@
   "homepage": "https://github.com/diosmosis/ng-fast-focus#readme",
   "devDependencies": {
     "chai": "^3.5.0",
+    "jshint": "^2.9.2",
     "karma": "^0.13.22",
     "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^0.2.3",
@@ -31,6 +35,14 @@
     "karma-sinon": "^1.0.4",
     "mocha": "^2.4.5",
     "phantomjs-prebuilt": "^2.1.7",
-    "sinon": "^1.17.4"
-  }
+    "pre-commit": "^1.1.2",
+    "sinon": "^1.17.4",
+    "uglifyjs": "^2.4.10"
+  },
+  "pre-commit": [
+    "jshint",
+    "test",
+    "build",
+    "add-dist"
+  ]
 }
