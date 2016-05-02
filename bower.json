@@ -1,0 +1,21 @@
+{
+  "name": "ng-fast-focus",
+  "description": "Efficient on-demand element focusing directive for angular.",
+  "main": "index.js",
+  "authors": [
+    "diosmosis"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "angular",
+    "focus"
+  ],
+  "homepage": "https://github.com/diosmosis/ng-fast-focus",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
