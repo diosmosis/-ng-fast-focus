@@ -1,8 +1,6 @@
 exports.config = {
     framework: 'mocha',
 
-    seleniumAddress: 'http://localhost:4444/wd/hub',
-
     specs: ['./e2e/*.spec.js'],
 
     mochaOpts: {
@@ -12,6 +10,8 @@ exports.config = {
 };
 
 if (process.env.TRAVIS) {
+    console.log("Detected travis build, running on saucelabs...");
+
     exports.config.sauceUser = process.env.SAUCE_USERNAME;
     exports.config.sauceKey = process.env.SAUCE_ACCESS_KEY;
     exports.config.capabilities = {
