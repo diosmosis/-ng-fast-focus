@@ -7,6 +7,8 @@ var serve = require('koa-static');
 var koa = require('koa');
 
 describe('module: ngFastFocus', function () {
+    this.timeout(30 * 1000);
+
     var server;
     var baseUrl = process.env.FAST_FOCUS_TEST_BASE_URL || 'http://localhost:8080';
 
