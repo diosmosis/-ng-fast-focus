@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <script src="/bower_components/angular/angular.js"></script>
+        <script src="/dist/ng-fast-focus.js"></script>
+
+        <script>
+            angular.module('ngFastFocusTest', [
+                'ng',
+                'ngFastFocus'
+            ]);
+
+            angular.module('ngFastFocusTest')
+                .controller('MyAppController', function ($scope) {
+                    $scope.items = [
+                        {id: 0, value: 'suki'},
+                        {id: 1, value: 'katara'},
+                        {id: 2, value: 'toph'},
+                        {id: 3, value: 'aang'}
+                    ];
+
+                    $scope.currentlyFocusedItem = 3;
+                });
+        </script>
+    </head>
+    <body ng-app="ngFastFocusTest">
+        <div ng-controller="MyAppController" focus-model="currentlyFocusedItem">
+            <div ng-repeat="item in items" tabindex="0" ng-attr-id="item-{{ item.id }}" focus-on="item.id">
+                {{ item.value }}
+            </div>
+
+            <button id="cycle-focus" ng-click="currentlyFocusedItem = (currentlyFocusedItem + 1) % items.length">Cycle</button>
+            <button id="set-incorrect-focus" ng-click="currentlyFocusedItem = 100">Set Incorrect Focus</button>
+        </div>
+    </body>
+</html>

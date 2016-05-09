@@ -21,15 +21,21 @@ module.exports = function( config ) {
             'karma-sinon',
             'karma-phantomjs-launcher',
             'karma-chrome-launcher',
-            'karma-coverage'
+            'karma-coverage',
+            'karma-spec-reporter'
         ],
         files: [
+            '../bower_components/angular/angular.js',
+            '../bower_components/angular-mocks/angular-mocks.js',
+            '../bower_components/bardjs/dist/bard.js',
+            "../test/spec/test-helpers.js",
+
             '*.module.js',
             '*.js',
             '../test/spec/*.js'
         ],
         exclude: [],
-        reporters: ['progress', 'coverage'],
+        reporters: ['spec', 'coverage'],
         preprocessors: {
             '*.js': ['coverage']
         },

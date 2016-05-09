@@ -1,5 +1,8 @@
 (function () {
     'use strict';
 
-    // TODO
+    angular.module('ngFastFocus', [
+        'ng'
+    ]);
+
 })();
